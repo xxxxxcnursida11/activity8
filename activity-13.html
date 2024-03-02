@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My activity list That i need to do</title>
+<link rel="stylesheet" href="sa.css">
+<script src="jflskfls.js"> </script>
+</head>
+<body>
+ <header>
+    <h1> My Activity That i Need to Do</h1>
+ </header>
+<div class="container">
+    <h2>Activity  List</h2>
+    <input type="text" id="taskInput" placeholder="New task that i need to do">
+    <button onclick="addTask()">Add Task</button>
+    <ul id="taskList">
+        <!-- Tasks will be dynamically added here -->
+    </ul>
+</div>
+<script>
+    function addTask() {
+    var taskInput = document.getElementById("taskInput");
+    var taskList = document.getElementById("taskList");
+    
+    if (taskInput.value.trim() === "") {
+        alert("Please enter a task!");
+        return;
+    }
+    
+    var li = document.createElement("li");
+    li.textContent = taskInput.value;
+    
+    var deleteBtn = document.createElement("span");
+    deleteBtn.textContent = "❌";
+    deleteBtn.classList.add("delete");
+    deleteBtn.onclick = function() {
+        li.remove();
+    };
+    
+    li.appendChild(deleteBtn);
+    taskList.appendChild(li);
+    
+    taskInput.value = "";
+}
+
+</script>
+<footer>
+    <h1> Nursida S. Cosingan</h1>
+</footer>
+</body>
+</html>
